@@ -1,5 +1,6 @@
 const trace: any[] = [];
 let lastInputValueMap: { [selector: string]: string | undefined } = {};
+let navigationCaptured = false;
 
 function getSelector(el: HTMLElement): string {
   if (el.id) return `#${el.id}`;
@@ -51,6 +52,17 @@ function recordEvent(e: Event) {
 }
 
 function attachListeners() {
+  if (!navigationCaptured) {
+    const navEvent = {
+      type: 'navigation',
+      url: window.location.href,
+      timestamp: Date.now()
+    };
+    trace.unshift(navEvent);
+    navigationCaptured = true;
+    chrome.storage.local.set({ actionTrace: trace });
+    console.log('[Recorder] Navigation event added & saved:', navEvent);
+  }
   console.log('[Recorder] Attaching event listeners...');
   window.addEventListener('click', recordEvent);
   window.addEventListener('input', recordEvent);
