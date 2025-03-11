@@ -1,16 +1,24 @@
 import { h } from 'preact';
-import { useState } from 'preact/hooks';
+import { useState, useEffect } from 'preact/hooks';
 
 const Popup = () => {
   const [recording, setRecording] = useState(false);
 
+  useEffect(() => {
+    chrome.storage.local.get(['recording'], (res) => {
+      setRecording(!!res.recording);
+    });
+  }, []);
+
   const toggleRecording = () => {
-    setRecording(!recording);
+    const newState = !recording;
+    setRecording(newState);
+    chrome.storage.local.set({ recording: newState });
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       chrome.scripting.executeScript({
         target: { tabId: tabs[0].id! },
         func: () => window.dispatchEvent(new CustomEvent(
-          recording ? 'STOP_RECORDING' : 'START_RECORDING'))
+          newState ? 'START_RECORDING' : 'STOP_RECORDING'))
       });
     });
   };
