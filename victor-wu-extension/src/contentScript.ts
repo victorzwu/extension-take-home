@@ -8,7 +8,14 @@ function getSelector(el: HTMLElement): string {
     const className = el.className.trim().split(/\s+/).join('.');
     return `${el.tagName}.${className}`;
   }
-  return el.tagName;
+
+  const parent = el.closest('button, div, span, a');
+  if (parent && parent !== el) {
+    const parentSelector = getSelector(parent as HTMLElement);
+    return `${parentSelector} > ${el.tagName.toLowerCase()}`;
+  }
+
+  return el.tagName.toLowerCase(); // fallback
 }
 
 function recordEvent(e: Event) {
