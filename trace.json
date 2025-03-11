@@ -1,0 +1,23 @@
+[
+  {
+    "selector": "A.mt-5.cursor-pointer.text-sm.font-semibold.text-token-text-secondary.underline",
+    "timestamp": 1741723512835,
+    "type": "click"
+  },
+  { "selector": "P.placeholder", "timestamp": 1741723513430, "type": "click" },
+  {
+    "selector": "DIV#prompt-textarea.ProseMirror.ProseMirror-focused",
+    "timestamp": 1741723514172,
+    "type": "input"
+  },
+  {
+    "selector": "DIV#prompt-textarea.ProseMirror.ProseMirror-focused",
+    "timestamp": 1741723514334,
+    "type": "input"
+  },
+  {
+    "selector": "DIV#prompt-textarea.ProseMirror.ProseMirror-focused",
+    "timestamp": 1741723514630,
+    "type": "input"
+  }
+]
