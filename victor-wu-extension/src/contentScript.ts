@@ -1,5 +1,6 @@
 const trace: any[] = [];
 let lastInputValueMap: { [selector: string]: string | undefined } = {};
+let lastInputFinalizedMap: { [selector: string]: boolean } = {};
 let navigationCaptured = false;
 
 function getSelector(el: HTMLElement): string {
@@ -29,33 +30,38 @@ function recordEvent(e: Event) {
     value = target.textContent || '';
   }
 
+  const timestamp = Date.now();
+
   if (e.type === 'input' || e.type === 'keydown' || e.type === 'keyup') {
-    if (lastInputValueMap[selector] === value) return;
+    const isDuplicateValue = lastInputValueMap[selector] === value;
+    const isFinalized = lastInputFinalizedMap[selector];
 
-    lastInputValueMap[selector] = value;
-
-    // Remove previous input for same selector from trace
-    const lastIdx = trace.findIndex(ev => ev.type === 'input' && ev.selector === selector);
-    if (lastIdx !== -1) {
-      trace.splice(lastIdx, 1);
+    if (!isDuplicateValue || !isFinalized) {
+      trace.push({
+        type: 'input',
+        selector,
+        value,
+        timestamp
+      });
+      lastInputValueMap[selector] = value;
+      lastInputFinalizedMap[selector] = true;
+      console.log('[Recorder] Input event recorded:', { selector, value });
+    } else {
+      console.log('[Recorder] Skipped duplicate or finalized input:', { selector, value });
     }
-
-    const event = {
-      type: 'input',
-      selector,
-      value,
-      timestamp: Date.now()
-    };
-
-    trace.push(event);
   } else if (e.type === 'click') {
-    // ✅ This block was missing before!
     const event = {
       type: 'click',
       selector,
-      timestamp: Date.now()
+      timestamp
     };
     trace.push(event);
+    console.log('[Recorder] Click event:', event);
+
+    // Reset finalized flags to allow new input recording
+    Object.keys(lastInputFinalizedMap).forEach((sel) => {
+      lastInputFinalizedMap[sel] = false;
+    });
   }
 
   chrome.storage.local.set({ actionTrace: trace }, () => {

@@ -1,36 +1,71 @@
 [
   {
-    "timestamp": 1741728175534,
+    "timestamp": 1741729933891,
     "type": "navigation",
     "url": "https://chatgpt.com/"
   },
   {
+    "selector": "#prompt-textarea",
+    "timestamp": 1741729937052,
+    "type": "input",
+    "value": "First message"
+  },
+  {
     "selector": "BUTTON.flex.items-center.justify-center.rounded-full.transition-colors.hover:opacity-70.focus-visible:outline-none.focus-visible:outline-black.disabled:text-[#f4f4f4].disabled:hover:opacity-100.dark:focus-visible:outline-white.disabled:dark:bg-token-text-quaternary.dark:disabled:text-token-main-surface-secondary.bg-black.text-white.disabled:bg-[#D7D7D7].dark:bg-white.dark:text-black.h-9.w-9 > svg",
-    "timestamp": 1741728180440,
+    "timestamp": 1741729938952,
     "type": "click"
   },
-  { "selector": "P.placeholder", "timestamp": 1741728181662, "type": "click" },
+  {
+    "selector": "P.placeholder",
+    "timestamp": 1741729940866,
+    "type": "click"
+  },
   {
     "selector": "#prompt-textarea",
-    "timestamp": 1741728183680,
+    "timestamp": 1741729945677,
     "type": "input",
-    "value": "Chatting again"
+    "value": "This is my second message!"
   },
   {
-    "selector": "BUTTON.flex.items-center.justify-center.rounded-full.transition-colors.hover:opacity-70.focus-visible:outline-none.focus-visible:outline-black.disabled:text-[#f4f4f4].disabled:hover:opacity-100.dark:focus-visible:outline-white.disabled:dark:bg-token-text-quaternary.dark:disabled:text-token-main-surface-secondary.bg-black.text-white.disabled:bg-[#D7D7D7].dark:bg-white.dark:text-black.h-9.w-9",
-    "timestamp": 1741728185031,
+    "selector": "DIV.flex.gap-x-1.5",
+    "timestamp": 1741729947508,
     "type": "click"
   },
   {
-    "selector": "BUTTON.h-10.rounded-lg.px-2.text-token-text-secondary.focus-visible:bg-token-surface-hover.focus-visible:outline-0.enabled:hover:bg-token-surface-hover.disabled:text-token-text-quaternary > svg",
-    "timestamp": 1741728187277,
+    "selector": "svg",
+    "timestamp": 1741729948050,
+    "type": "click"
+  },
+  {
+    "selector": "P.placeholder",
+    "timestamp": 1741729952455,
+    "type": "click"
+  },
+  {
+    "selector": "#prompt-textarea",
+    "timestamp": 1741729956100,
+    "type": "input",
+    "value": "Wow, I'm good at this!"
+  },
+  {
+    "selector": "svg",
+    "timestamp": 1741729958304,
+    "type": "click"
+  },
+  {
+    "selector": "BUTTON.h-10.rounded-lg.px-2.text-token-text-secondary.focus-visible:bg-token-surface-hover.focus-visible:outline-0.enabled:hover:bg-token-surface-hover.disabled:text-token-text-quaternary",
+    "timestamp": 1741729962147,
     "type": "click"
   },
   {
     "selector": "INPUT.w-full.border-none.bg-transparent.placeholder:text-token-text-tertiary.focus:border-transparent.focus:outline-none.focus:ring-0",
-    "timestamp": 1741728188303,
+    "timestamp": 1741729964561,
     "type": "input",
-    "value": "search"
+    "value": "testing search"
   },
-  { "selector": "DIV.truncate", "timestamp": 1741728191296, "type": "click" }
+  {
+    "selector": "DIV.truncate",
+    "timestamp": 1741729966439,
+    "type": "click"
+  }
 ]
