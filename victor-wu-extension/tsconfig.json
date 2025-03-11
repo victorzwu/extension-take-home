@@ -1,7 +1,14 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "types": ["chrome"],  // 👈 Add this line
+    "baseUrl": "./src"
+  },
+  "include": ["src"]
 }
