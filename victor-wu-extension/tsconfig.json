@@ -7,7 +7,7 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
-    "types": ["chrome"],  // 👈 Add this line
+    "types": ["chrome"], 
     "baseUrl": "./src"
   },
   "include": ["src"]
