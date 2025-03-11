@@ -15,11 +15,16 @@ const Popup = () => {
     setRecording(newState);
     chrome.storage.local.set({ recording: newState });
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      chrome.scripting.executeScript({
-        target: { tabId: tabs[0].id! },
-        func: () => window.dispatchEvent(new CustomEvent(
-          newState ? 'START_RECORDING' : 'STOP_RECORDING'))
-      });
+      const tab = tabs[0];
+      if (tab?.url && tab.url.startsWith('http')) {
+        chrome.scripting.executeScript({
+          target: { tabId: tab.id! },
+          func: () => window.dispatchEvent(new CustomEvent(
+            newState ? 'START_RECORDING' : 'STOP_RECORDING'))
+        });
+      } else {
+        alert('Recording only works on standard web pages, not chrome:// or extension pages.');
+      }
     });
   };
 
