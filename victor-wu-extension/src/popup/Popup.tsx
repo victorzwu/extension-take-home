@@ -16,18 +16,17 @@ const Popup = () => {
     setRecording(newState);
     chrome.storage.local.set({ recording: newState });
   
-    // 🔥 Change the extension icon
     chrome.action.setIcon({
       path: newState
         ? {
-            16: 'icons/icon-recording-16.png',
-            48: 'icons/icon-recording-48.png',
-            128: 'icons/icon-recording-128.png',
+            16: 'icons/checked-16.png',
+            48: 'icons/checked-48.png',
+            128: 'icons/checked-128.png',
           }
         : {
-            16: 'icons/icon-idle-16.png',
-            48: 'icons/icon-idle-48.png',
-            128: 'icons/icon-idle-128.png',
+            16: 'icons/unchecked-16.png',
+            48: 'icons/unchecked-48.png',
+            128: 'icons/unchecked-128.png',
           },
     });
   
