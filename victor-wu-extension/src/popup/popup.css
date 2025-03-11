@@ -1,0 +1,66 @@
+body {
+    font-family: system-ui, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    color: #333;
+  }
+  
+  .container {
+    padding: 16px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #222;
+  }
+  
+  button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button.recording {
+    background-color: #e53935;
+    color: white;
+  }
+  
+  button.recording:hover {
+    background-color: #c62828;
+  }
+  
+  button.start {
+    background-color: #1976d2;
+    color: white;
+  }
+  
+  button.start:hover {
+    background-color: #1565c0;
+  }
+  
+  button.download {
+    background-color: #43a047;
+    color: white;
+  }
+  
+  button.download:hover {
+    background-color: #388e3c;
+  }
+  
+  .note {
+    font-size: 12px;
+    color: #777;
+    margin-top: 8px;
+  }
