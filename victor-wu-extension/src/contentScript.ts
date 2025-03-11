@@ -24,7 +24,14 @@ function recordEvent(e: Event) {
 
   if (e.type === 'input' || e.type === 'keydown' || e.type === 'keyup') {
     if (lastInputValueMap[selector] === value) return;
+
     lastInputValueMap[selector] = value;
+
+    // Remove previous input for same selector from trace
+    const lastIdx = trace.findIndex(ev => ev.type === 'input' && ev.selector === selector);
+    if (lastIdx !== -1) {
+      trace.splice(lastIdx, 1);
+    }
 
     const event = {
       type: 'input',
@@ -33,16 +40,14 @@ function recordEvent(e: Event) {
       timestamp: Date.now()
     };
 
-    console.log('[Recorder] Input Event:', event);
     trace.push(event);
-  } else {
+  } else if (e.type === 'click') {
+    // ✅ This block was missing before!
     const event = {
-      type: e.type,
+      type: 'click',
       selector,
       timestamp: Date.now()
     };
-
-    console.log('[Recorder] Click/Scroll Event:', event);
     trace.push(event);
   }
 
