@@ -103,7 +103,6 @@ extension-take-home/
     ├── dist/                 # Vite build output (generated after build)
     ├── src/
     │   ├── contentScript.ts  # Injected script to record actions
-    │   ├── popup.tsx         # UI logic of the extension popup
     │   ├── popup.html        # HTML for popup window
     ├── manifest.json         # Chrome extension manifest configuration
     └── vite.config.js        # Vite build configuration
