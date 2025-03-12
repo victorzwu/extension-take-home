@@ -12,53 +12,9 @@ This extension allows you to start and stop recording user actions with a single
 ### Invalid Page Warning
 ![Screenshot 2025-03-11 at 4 52 55 PM](https://github.com/user-attachments/assets/02fe963c-5b2c-422d-9854-fa182c316582)
 
-
 ---
 
-## 📁 Project Structure
-
-```
-extension-take-home/
-├── README.md                 # Project description and instructions
-├── replay.py                 # Puppeteer script to replay recorded actions
-├── trace.json                # Example recorded trace
-└── victor-wu-extension/      # Chrome Extension source
-    ├── icons/                # Extension icon assets (checked/unchecked PNGs)
-    ├── dist/                 # Vite build output (generated after build)
-    ├── src/
-    │   ├── contentScript.ts  # Injected script to record actions
-    │   ├── popup.tsx         # UI logic of the extension popup
-    │   ├── popup.html        # HTML for popup window
-    ├── manifest.json         # Chrome extension manifest configuration
-    └── vite.config.js        # Vite build configuration
-```
-
----
-
-## 🚀 Getting Started
-
-### 1. Install dependencies
-
-```bash
-npm install
-```
-
-### 2. Build the extension
-
-```bash
-npm run build
-```
-
-### 3. Load into Chrome
-
-- Open `chrome://extensions/`
-- Enable **Developer Mode**
-- Click **"Load unpacked"**
-- Select the `dist/` folder
-
----
-
-## 📄 Trace Format Example
+## Trace Format Example
 
 ```json
 [
@@ -133,3 +89,46 @@ npm run build
   }
 ]
 ```
+---
+
+## Project Structure
+
+```
+extension-take-home/
+├── README.md                 # Project description and instructions
+├── replay.py                 # Puppeteer script to replay recorded actions
+├── trace.json                # Example recorded trace
+└── victor-wu-extension/      # Chrome Extension source
+    ├── icons/                # Extension icon assets (checked/unchecked PNGs)
+    ├── dist/                 # Vite build output (generated after build)
+    ├── src/
+    │   ├── contentScript.ts  # Injected script to record actions
+    │   ├── popup.tsx         # UI logic of the extension popup
+    │   ├── popup.html        # HTML for popup window
+    ├── manifest.json         # Chrome extension manifest configuration
+    └── vite.config.js        # Vite build configuration
+```
+
+---
+
+## Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Build the extension
+
+```bash
+npm run build
+```
+
+### 3. Load into Chrome
+
+- Open `chrome://extensions/`
+- Enable **Developer Mode**
+- Click **"Load unpacked"**
+- Select the `dist/` folder
+
